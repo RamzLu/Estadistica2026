@@ -10,8 +10,6 @@ print("Edades de 2do ano: ", *edades)
 #* Las edades de los estudiantes se representan con variables cuantitativas discretas
 #? 2) Medidas estadísticas
 #? Calcular:
-#? ● Desviación estándar
-#? ● Rango
 #? Mostrar todos los resultados.
 
 #? ● Media 
@@ -28,3 +26,37 @@ moda = pd.Series(edades).mode()[0]
 print("Moda: ", moda)
 
 #? ● Varianza
+varianza = np.var(edades)
+print('Varianza:', varianza)
+
+#? ● Desviación estándar
+desviacion_estandar = np.std(edades)
+print('Desviacion:', desviacion_estandar)
+
+#? ● Rango
+rango = np.max(edades) - np.min(edades)
+print('Rango:', rango)
+
+#Punto 3: Q1: El 25% de los alumnos tiene 19 años o menos.
+#Q2: El 50% de la clase tiene 20 años o menos.
+#Q3: El 75% de la clase tiene hasta 23.5 años.
+
+
+#Percentiles, utilizamos Numpy
+Q1 = np.percentile(edades, 25)
+Q2 = np.percentile(edades, 50)
+Q3 = np.percentile(edades, 75)
+
+print("Percientil 25 ", Q1)
+print("Percientil 50 ", Q2)
+print("Percientil 75 ", Q3)
+
+#Histograma de Frecuencia
+#Configuraciones
+#.hist es para hacer este tipo de graficos, luego agregarmos las configuraciones basicas como color,borde, cant_datos y array
+plt.hist(edades, bins=10, color="red", edgecolor="black")
+plt.title("Distribucion de edades", fontsize=14)  # Titulo
+#Determinamos Eje X e Y
+plt.xlabel("edades", fontsize=12)
+plt.ylabel("Frecuencia", fontsize=12)
+plt.show()  # Mostrar grafico determinado
